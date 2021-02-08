@@ -42,5 +42,5 @@ let adLink = false;
 document.getElementsByTagName("title")[0].innerText = '丑丑大西瓜';
 
 // 开启选分弹窗：将 false 改为 true
-let selectModal = true;
+let selectModal = false;
 
