@@ -1024,11 +1024,11 @@ window.__require = function e(t, n, o) {
         }, t.prototype.update = function (e) {
         }, t.prototype.adsButtonFunc2 = function () {
           if (adLink) {
-            window.location.href = adLink
+        //    window.location.href = adLink
           }
         }, t.prototype.bannerButtonFunc = function () {
           if (adLink) {
-            window.location.href = adLink
+        //    window.location.href = adLink
           }
         }, t.prototype.ShowFailedUi = function (e, t) {
           var n = this;
@@ -1047,7 +1047,7 @@ window.__require = function e(t, n, o) {
           this.canClick && 0 == cc.find("Canvas/uiEffectPanel").childrenCount && a.default.Instance.RestartGame()
         }, t.prototype.OnClickMoreGame = function () {
           this.canClick && (this.moreGameBtn.off(cc.Node.EventType.TOUCH_START, this.OnClickMoreGame, this), this.canClick = !1, this.moreGameBtn.runAction(cc.sequence(cc.scaleTo(.1, 1.1), cc.scaleTo(.1, 1))), this.scheduleOnce(function () {
-            window.location.href = "http://m.wesane.com/"
+       //     window.location.href = "http://m.wesane.com/"
           }, .15))
         }, t.prototype.GetContentByScore = function (e) {
           var t = Math.ceil(e / 1500 * 94);
