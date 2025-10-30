@@ -1012,7 +1012,7 @@ window.__require = function e(t, n, o) {
           null != n.Instance && n.Instance.destroy(), n.Instance = this, this.clickMask.setContentSize(cc.winSize.width, cc.winSize.height), this.bgMask.setContentSize(cc.winSize.width, cc.winSize.height), this.failedUiBox.y = cc.winSize.height / 2 + this.failedUiBox.height / 2
         }, t.prototype.start = function () {
           var e = i.default.returnCurrentLanType();
-          1 != e && (this.bencichengji.getComponent(cc.Sprite).spriteFrame = this.bencichengjiarr[e - 1], this.gengduoyouxi.getComponent(cc.Sprite).spriteFrame = this.gengduoyouxiarr[e - 1]), this.continueTip.getComponent(cc.Label).string = 1 == e ? "\u70b9\u51fb\u7ee7\u7eed" : 2 == e ? "\u9ede\u64ca\u7e7c\u7e8c" : 4 == e ? "\ud074\ub9ad \ud558\uc5ec \uacc4\uc18d" : "Click Continue", this.reStartBtn.runAction(cc.repeatForever(cc.sequence(cc.scaleTo(.5, 1.1), cc.scaleTo(.55, 1), cc.delayTime(.5)))), cc.tween(this.moreGameBtn).to(.5, {
+          1 != e && (this.bencichengji.getComponent(cc.Sprite).spriteFrame = this.bencichengjiarr[e - 1], this.gengduoyouxi.getComponent(cc.Sprite).spriteFrame = this.gengduoyouxiarr[e - 1]), this.continueTip.getComponent(cc.Label).string = "Click to Continue", this.reStartBtn.runAction(cc.repeatForever(cc.sequence(cc.scaleTo(.5, 1.1), cc.scaleTo(.55, 1), cc.delayTime(.5)))), cc.tween(this.moreGameBtn).to(.5, {
             scale: 1.1
           }).to(.5, {
             scale: 1
@@ -1033,7 +1033,7 @@ window.__require = function e(t, n, o) {
         }, t.prototype.ShowFailedUi = function (e, t) {
           var n = this;
           this.scheduleOnce(function () {
-            r.default.Instance.HideScorePanel(), n.levelTxt.string = r.default.Instance.level.toString(), n.scoreLabel.string = s.default.score.toString(), n.highScoreLabel.string = t, n.resultTxt.string = n.GetContentByScore(e), n.overTxt.string = "\u5f53\u524d\u5173\u5361\u5df2\u5b8c\u6210" + Math.floor(r.default.Instance.nowYQ / r.default.Instance.passlevelYQ * 100) + "%", n.canClick = !1, n.levelTxt.string = e, n.bgMask.runAction(cc.fadeTo(.36, 150)), n.scheduleOnce(function () {
+            r.default.Instance.HideScorePanel(), n.levelTxt.string = r.default.Instance.level.toString(), n.scoreLabel.string = s.default.score.toString(), n.highScoreLabel.string = t, n.resultTxt.string = n.GetContentByScore(e), n.overTxt.string = "Current level completed " + Math.floor(r.default.Instance.nowYQ / r.default.Instance.passlevelYQ * 100) + "%", n.canClick = !1, n.levelTxt.string = e, n.bgMask.runAction(cc.fadeTo(.36, 150)), n.scheduleOnce(function () {
               i.default.CenteredUi(10, this.di, this.levelTxt.node, this.guan), this.failedUiBox.y = cc.winSize.height / 2 + this.failedUiBox.height / 2, this.failedUiBox.runAction(cc.sequence(cc.moveTo(.36, this.failedBoxPos).easing(cc.easeBackOut()), cc.callFunc(function () {
                 this.clickMask.on(cc.Node.EventType.TOUCH_START, this.OnClickCloseMask, this), this.moreGameBtn.on(cc.Node.EventType.TOUCH_START, this.OnClickMoreGame, this), this.continueTip.opacity = 0, this.continueTip.runAction(cc.repeatForever(cc.sequence(cc.fadeIn(.5), cc.delayTime(.5), cc.fadeOut(.5)))), this.canClick = !0
               }, this)))
@@ -1047,13 +1047,12 @@ window.__require = function e(t, n, o) {
           this.canClick && 0 == cc.find("Canvas/uiEffectPanel").childrenCount && a.default.Instance.RestartGame()
         }, t.prototype.OnClickMoreGame = function () {
           this.canClick && (this.moreGameBtn.off(cc.Node.EventType.TOUCH_START, this.OnClickMoreGame, this), this.canClick = !1, this.moreGameBtn.runAction(cc.sequence(cc.scaleTo(.1, 1.1), cc.scaleTo(.1, 1))), this.scheduleOnce(function () {
-       //     window.location.href = "http://m.wesane.com/"
           }, .15))
         }, t.prototype.GetContentByScore = function (e) {
           var t = Math.ceil(e / 1500 * 94);
           t > 94 && (t = 94);
           var n = 5 + t;
-          return "\u51fb\u8d25\u4e86\u5168\u7403" + n + "%\u7684\u73a9\u5bb6\uff01", ["\u51fb\u8d25\u4e86\u5168\u7403" + n + "%\u7684\u73a9\u5bb6\uff01", "\u64ca\u6557\u4e86\u5168\u7403" + n + "%\u7684\u73a9\u5bb6\uff01", "Beat " + n + " % of global players", "\uc804 \uc138\uacc4" + n + "% \uc758 \uc720 \uc800 \ub97c \uc774 \uacbc \uc2b5 \ub2c8 \ub2e4"][i.default.returnCurrentLanType() - 1]
+          return "Beat " + n + "% of global players!", "Beat " + n + "% of global players!"
         }, t.Instance = null, c([d(cc.Node)], t.prototype, "clickMask", void 0), c([d(cc.Node)], t.prototype, "failedUiBox", void 0), c([d(cc.Node)], t.prototype, "di", void 0), c([d(cc.Label)], t.prototype, "levelTxt", void 0), c([d(cc.Node)], t.prototype, "guan", void 0), c([d(cc.Node)], t.prototype, "continueTip", void 0), c([d(cc.Label)], t.prototype, "scoreLabel", void 0), c([d(cc.Node)], t.prototype, "highScoreNode", void 0), c([d(cc.Node)], t.prototype, "highScore", void 0), c([d(cc.Label)], t.prototype, "highScoreLabel", void 0), c([d(cc.Label)], t.prototype, "resultTxt", void 0), c([d(cc.Label)], t.prototype, "overTxt", void 0), c([d(cc.Node)], t.prototype, "moreGameBtn", void 0), c([d(cc.Node)], t.prototype, "reStartBtn", void 0), c([d(cc.Vec2)], t.prototype, "failedBoxPos", void 0), c([d], t.prototype, "standardScore", void 0), c([d(cc.Node)], t.prototype, "bgMask", void 0), c([d(cc.Node)], t.prototype, "bencichengji", void 0), c([d(cc.SpriteFrame)], t.prototype, "bencichengjiarr", void 0), c([d(cc.Node)], t.prototype, "gengduoyouxi", void 0), c([d(cc.SpriteFrame)], t.prototype, "gengduoyouxiarr", void 0), c([d(cc.Node)], t.prototype, "adsButton2", void 0), c([d(cc.Node)], t.prototype, "bannerButton", void 0), t = n = c([u], t)
       }(cc.Component);
     n.default = p, cc._RF.pop()
@@ -1468,7 +1467,7 @@ window.__require = function e(t, n, o) {
     cc._RF.push(t, "197e1hfNnxIcJx73V3VhUxY", "HttpManagerJs");
     var a = e("GameConfig"),
       i = (c(o = {
-        URL: "http://www.wesane.com/h5service.php/Interface/services",
+        // URL: "http://www.wesane.com/h5service.php/Interface/services",
         cacheList: null,
         isBusy: null,
         req: null,
@@ -1524,9 +1523,9 @@ window.__require = function e(t, n, o) {
       }), c(o, "returnLanguage", function () {
         return ("" + window.navigator.language).toLocaleLowerCase()
       }), c(o, "onErrorHandler", function () {
-        cc.log("\u7f51\u7edc\u9519\u8bef"), this.isBusy = !1, this.perform.target ? this.perform.func.call(this.perform.target, -1) : this.perform.func(-1)
+        cc.log("Network error"), this.isBusy = !1, this.perform.target ? this.perform.func.call(this.perform.target, -1) : this.perform.func(-1)
       }), c(o, "onTimeoutHandler", function () {
-        cc.log("\u8bf7\u6c42\u8d85\u65f6"), this.isBusy = !1, this.perform.target ? this.perform.func.call(this.perform.target, -1) : this.perform.func(-1)
+        cc.log("Request timeout"), this.isBusy = !1, this.perform.target ? this.perform.func.call(this.perform.target, -1) : this.perform.func(-1)
       }), c(o, "clearAll", function () {
         for (var e = this.cacheList.length, t = 0; t < e; t++) {
           var n = this.cacheList[t];
@@ -1775,28 +1774,28 @@ window.__require = function e(t, n, o) {
     cc._RF.push(t, "4754e8KuPZJCqklCNyKpG29", "LanguageSetJs");
     t.exports = {
       language_1: {
-        game_name: "\u300c\u5c04\u82f9\u679c\u300d",
-        game_name1: "\u5c04\u82f9\u679c",
-        game_info: "\u628a\u63e1\u65f6\u673a\uff0c\u5c04\u4e2d\u82f9\u679c\u3002",
-        txtStart: "\u5f00\u59cb",
-        txtMore: "\u66f4\u591a\u6e38\u620f",
-        txtAgain: "\u518d\u73a9\u4e00\u6b21",
-        txtShare1: "\u5728\u6e38\u620f\u4e2d ",
-        txtShare2: "\u5f97\u5206\u4e86\uff0c\u597d\u554a!\u4f60\u548c\u6211\u4e00\u8d77\u6765\u6bd4\u8d5b!",
+        game_name: "Shot Apples",
+        game_name1: "Shot Apples",
+        game_info: "Seize the opportunity and shoot the apple.",
+        txtStart: "Start",
+        txtMore: "More Games",
+        txtAgain: "Play Again",
+        txtShare1: "In Game ",
+        txtShare2: " scored! Let's play together!",
         bgRgb: "#3698C5",
-        gameT1: "\u5173\u6ce8\u6211\u4eec",
-        gameT2: "\u7eb8\u724c\u63a5\u9f99",
-        gameT3: "\u9526\u4e0a\u6dfb\u82b1",
+        gameT1: "Follow Us",
+        gameT2: "Card Solitaire",
+        gameT3: "Blossom",
         gameUrl1: "http://g.regogame.com/game/9/",
         gameUrl2: "http://g.regogame.com/game/3/",
-        gameT11: "\u5173\u6ce8\u5fae\u4fe1",
-        gameT12: "\u5173\u6ce8Kakao",
-        gameT13: "\u5173\u6ce8Line",
-        gameEndL: "\u6e38 \u620f \u7ed3 \u675f",
-        gameEndL1: "\u7a0d \u5019 \u67e5 \u770b \u5206 \u6570"
+        gameT11: "Follow WeChat",
+        gameT12: "Follow Kakao",
+        gameT13: "Follow Line",
+        gameEndL: "Game Over",
+        gameEndL1: "View Score Later"
       },
       language_2: {
-        game_name: "\u300cShot Apples\u300d",
+        game_name: "Shot Apples",
         game_name1: "Shot Apples",
         game_info: "Seize the opportunity and shoot the apple.",
         txtStart: "Start",
@@ -1886,7 +1885,7 @@ window.__require = function e(t, n, o) {
         var e = 1;
         switch (cc.sys.language) {
           case cc.sys.LANGUAGE_CHINESE:
-            "zh-TW" == window.navigator.language || "zh-tw" == window.navigator.language || "zh-HK" == window.navigator.language || "zh-hk" == window.navigator.language ? (cc.log("\u7e41\u4f53"), e = 2) : (cc.log("\u7b80\u4f53"), e = 1);
+            e = 3;
             break;
           case cc.sys.LANGUAGE_KOREAN:
             e = 4;
@@ -1899,7 +1898,7 @@ window.__require = function e(t, n, o) {
       gameEnd1: function () {
         var e = this,
           t = this.returnCurrentLanType();
-        1 == t ? (this.gameOverT1.string = "\u6e38 \u620f \u7ed3 \u675f", this.gameOverT2.string = "\u70b9 \u51fb \u67e5 \u770b \u5206 \u6570") : 2 == t ? (this.gameOverT1.string = "\u904a \u6232 \u7d50 \u675f", this.gameOverT2.string = "\u9ede \u64ca \u67e5 \u770b \u5206 \u6578") : 4 == t ? (this.gameOverT1.string = "\uac8c\uc784 \uc885\ub8cc", this.gameOverT2.string = "\ud074\ub9ad \ud558\uc5ec \uc810\uc218 \ubcf4\uae30") : (this.gameOverT1.string = "Game Over", this.gameOverT2.string = "Click to view the score"), this.gameOveEndBool = !0, this.gameOverT1.node.zIndex = 999, this.gameOverT2.node.zIndex = 999, this.gameOverToEnd.zIndex = 999, this.gameOverT1.node.opacity = 0, this.gameOverT1.node.y = 100, this.gameOverToEnd.y = 0, this.gameOverT1.node.runAction(cc.sequence(cc.delayTime(.2), cc.spawn(cc.fadeIn(1), cc.moveBy(1, 0, -50)), cc.delayTime(.3))), this.gameOverToEnd.runAction(cc.sequence(cc.fadeTo(1, 100), cc.callFunc(function () {
+        this.gameOverT1.string = "Game Over", this.gameOverT2.string = "Click to view score", this.gameOveEndBool = !0, this.gameOverT1.node.zIndex = 999, this.gameOverT2.node.zIndex = 999, this.gameOverToEnd.zIndex = 999, this.gameOverT1.node.opacity = 0, this.gameOverT1.node.y = 100, this.gameOverToEnd.y = 0, this.gameOverT1.node.runAction(cc.sequence(cc.delayTime(.2), cc.spawn(cc.fadeIn(1), cc.moveBy(1, 0, -50)), cc.delayTime(.3))), this.gameOverToEnd.runAction(cc.sequence(cc.fadeTo(1, 100), cc.callFunc(function () {
           e.gameOverToEnd.getComponent(cc.Button).enabled = !0
         }))), this.gameOverT2.node.opacity = 0, this.gameOverT2.node.y = this.gameOverT1.node.y - 100, this.gameOverT2.node.runAction(cc.sequence(cc.delayTime(.2), cc.spawn(cc.fadeIn(1), cc.moveBy(1, 0, -50)), cc.delayTime(.3))), this.gameOverT2.node.runAction(cc.sequence(cc.delayTime(2), cc.scaleTo(.3, 1.2).easing(cc.easeSineInOut()), cc.scaleTo(.3, 1).easing(cc.easeSineInOut()))).repeatForever()
       },
@@ -2143,13 +2142,13 @@ window.__require = function e(t, n, o) {
             i = c.substring(c.lastIndexOf("/game/") + 1, c.length).split("/");
           i.length >= 2 && (a = i[1]), this.gameHttpId = a, cc.log("gameId", a);
           e.substring(e.lastIndexOf("//") + 4, e.lastIndexOf("com") + 3);
-          this.moreGameUrl = "http://m.wesane.com/"
+          // this.moreGameUrl = "http://m.wesane.com/"
         },
         gameOverShowText: function (e, t) {
-          this.ajaxLoad("http://www.wesane.com/admin.php/Gamescore/saveGamescore", "gameScore=" + e + "&gameId=" + this.gameHttpId + "&gameType=" + t, this.scoreResult)
+          // this.ajaxLoad("http://www.wesane.com/admin.php/Gamescore/saveGamescore", "gameScore=" + e + "&gameId=" + this.gameHttpId + "&gameType=" + t, this.scoreResult)
         },
         gamePV_load: function () {
-          this.ajaxLoad("http://www.wesane.com/admin.php/Activityshow/gamelogo", "gameID=" + this.gameHttpId, this.ajaxOnLogoResult)
+          // this.ajaxLoad("http://www.wesane.com/admin.php/Activityshow/gamelogo", "gameID=" + this.gameHttpId, this.ajaxOnLogoResult)
         },
         ajaxOnLogoResult: function () {
         },
@@ -2165,7 +2164,7 @@ window.__require = function e(t, n, o) {
         },
         initLanguage: function () {
           var e = null;
-          return cc.sys.language == cc.sys.LANGUAGE_CHINESE ? (this.curType = 1, e = c.language_1) : (cc.log("\u82f1\u6587"), this.curType = 2, e = c.language_2), e
+          return cc.sys.language == cc.sys.LANGUAGE_CHINESE ? (this.curType = 1, e = c.language_1) : (cc.log("English"), this.curType = 2, e = c.language_2), e
         },
         getLinkGameReturn: function (e, t, n, o) {
           if (console.log("err0", e), console.log("err1", t), console.log("err2", n), console.log("err3", o), 0 == e) {
@@ -2239,13 +2238,13 @@ window.__require = function e(t, n, o) {
       i = c.property,
       r = function () {
         function e() {
-          this.nickName = "\u5927\u638c\u6559", this.qGroup = "704391772"
+          this.nickName = "Master", this.qGroup = "704391772"
         }
 
         return o([i({
-          displayName: "\u6635\u79f0"
+          displayName: "Nickname"
         })], e.prototype, "nickName", void 0), o([i({
-          displayName: "Q\u7fa4"
+          displayName: "Q Group"
         })], e.prototype, "qGroup", void 0), e = o([a("Player")], e)
       }();
     n.default = r, cc._RF.pop()
@@ -2380,7 +2379,7 @@ window.__require = function e(t, n, o) {
           var a = cc.instantiate(n.Instance.allPrefabMap.get(e));
           return null != t && (a.parent = t), a
         }, t.Despawn = function (e, t) {
-          if (!n.Instance.poolMap.has(e)) return cc.log("\u56de\u6536\u5931\u8d25,\u8282\u70b9\u540d : " + e), null;
+          if (!n.Instance.poolMap.has(e)) return cc.log("Recycle failed, node name: " + e), null;
           n.Instance.poolMap.get(e).put(t)
         }, t.GetPrefab = function (e) {
           return n.Instance.allPrefabMap.has(e) ? n.Instance.allPrefabMap.get(e) : null
@@ -2716,7 +2715,7 @@ window.__require = function e(t, n, o) {
             return this.faceToTarget
           }
         })], t.prototype, "faceAxis", void 0), a([s({
-          tooltip: "\u81ea\u52a8\u5f00\u59cb\u65cb\u8f6c"
+          tooltip: "Auto start rotation"
         })], t.prototype, "autoStart", void 0), t = a([r], t)
       }(cc.Component);
     n.default = l, cc._RF.pop()
@@ -2902,7 +2901,7 @@ window.__require = function e(t, n, o) {
       },
       writeJson: function (e, t) {
         if (cc.sys.isBrowser) {
-          console.log("\u6d4f\u89c8\u5668");
+          console.log("Browser");
           var n = new Blob([e], {
               type: "application/json"
             }),
@@ -2930,7 +2929,7 @@ window.__require = function e(t, n, o) {
           var a = cc.instantiate(c);
           return null != t && t.addChild(a, o), null != n && (a.position = n), a
         }
-        return console.log("\u514b\u9686\u9884\u5236\u4f53\u5931\u8d25:" + e), null
+        return console.log("Clone prefab failed: " + e), null
       },
       newLabel: function (e, t) {
         var n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : 20,
@@ -2954,7 +2953,7 @@ window.__require = function e(t, n, o) {
         var t = void 0;
         if (null != this.AudioArrJs) t = this.AudioArrJs.getAudioClip(e);
         else {
-          if (null == e) return console.log("clip\u4e0d\u80fd\u4e3a\u7a7a\uff01"), null;
+          if (null == e) return console.log("Clip cannot be null!"), null;
           t = e
         }
         var n = new cc.Node;
@@ -2992,7 +2991,7 @@ window.__require = function e(t, n, o) {
         var e = 1;
         switch (cc.sys.language) {
           case cc.sys.LANGUAGE_CHINESE:
-            "zh-TW" == window.navigator.language || "zh-tw" == window.navigator.language || "zh-HK" == window.navigator.language || "zh-hk" == window.navigator.language ? (cc.log("\u7e41\u4f53"), e = 2) : (cc.log("\u7b80\u4f53"), e = 1);
+            e = 3;
             break;
           case cc.sys.LANGUAGE_KOREAN:
             e = 4;
@@ -3017,7 +3016,7 @@ window.__require = function e(t, n, o) {
       return e.getBezierPos = function (e, t) {
         var n = new Array,
           o = e.length;
-        if (o < 2) return cc.log("\u63a7\u5236\u70b9\u6570\u4e0d\u80fd\u5c0f\u4e8e 2"), n;
+        if (o < 2) return cc.log("Control points cannot be less than 2"), n;
         for (var c = this.getYangHuiTriangle(o), a = 0; a < t; a++) {
           for (var i = a / t, r = 0, s = 0, l = 0; l < o; l++) r += Math.pow(1 - i, o - l - 1) * e[l].x * Math.pow(i, l) * c[l], s += Math.pow(1 - i, o - l - 1) * e[l].y * Math.pow(i, l) * c[l];
           n[a] = new cc.Vec2(r, s)
@@ -3128,7 +3127,7 @@ window.__require = function e(t, n, o) {
         var e = 1;
         switch (cc.sys.language) {
           case cc.sys.LANGUAGE_CHINESE:
-            "zh-TW" == window.navigator.language || "zh-tw" == window.navigator.language || "zh-HK" == window.navigator.language || "zh-hk" == window.navigator.language ? (cc.log("\u7e41\u4f53"), e = 2) : (cc.log("\u7b80\u4f53"), e = 1);
+            e = 3;
             break;
           case cc.sys.LANGUAGE_KOREAN:
             e = 4;
@@ -3603,9 +3602,9 @@ window.__require = function e(t, n, o) {
       },
       onLoad: function () {
         this.bgLayer.color = cc.color("#68b951"), this.standardScore = c.standScore, this.game_max_score = 200, this.rigthBtnGameName = null, this.rightBtnGameUrl = null, this.UIPosChange(), this.addClickBtns();
-        var e = "\u6700\u9ad8\u7eaa\u5f55:",
+        var e = "Highest Record:",
           t = this.returnCurrentLanType();
-        e = 1 == t ? "\u6700\u9ad8\u7eaa\u5f55:" : 2 == t ? "\u6700\u9ad8\u7d00\u9304:" : 4 == t ? "\ucd5c\uace0 \uae30\ub85d:" : "Highest Record:";
+        e = "Highest Record:";
         var n = c.gameScore,
           o = this.getHighScore();
         o ? o < c.gameScore && (this.setHisSocre(c.gameScore), o = c.gameScore) : (this.setHisSocre(c.gameScore), o = n), this.maxScoreText.string = e + o
@@ -3614,7 +3613,7 @@ window.__require = function e(t, n, o) {
         var e = 1;
         switch (cc.sys.language) {
           case cc.sys.LANGUAGE_CHINESE:
-            "zh-TW" == window.navigator.language || "zh-tw" == window.navigator.language || "zh-HK" == window.navigator.language || "zh-hk" == window.navigator.language ? (cc.log("\u7e41\u4f53"), e = 2) : (cc.log("\u7b80\u4f53"), e = 1);
+            e = 3;
             break;
           case cc.sys.LANGUAGE_KOREAN:
             e = 4;
@@ -3663,21 +3662,21 @@ window.__require = function e(t, n, o) {
         })
       },
       getContentByScore: function (e, t) {
-        var n = "\u6211\u771f\u662f\u592a\u5389\u5bb3\uff0c\u5728" + t + "\u4e2d\u7adf\u7136\u5f97\u4e861\u5206\uff0c\u5168\u7403\u53ea\u67091\u4e2a\u4eba\u5f971\u5206\uff01",
+        var n = "I'm awesome! Got 0 in " + t + ", only one person in the world has 0!",
           o = parseInt(.3 * this.standardScore),
           c = parseInt(1.5 * this.standardScore),
           a = parseInt(2.5 * this.standardScore),
           i = parseInt(4 * this.standardScore);
-        if (e > 0 && e <= o) n = "\u6211\u5728" + t + "\u4e2d\u5f97\u4e86" + e + "\u5206\uff0c\u771f\u662f\u592a\u68d2\u4e86\uff0c\u518d\u7ec3\u7ec3\u5c31\u80fd\u8fbe\u5230\u6e38\u5203\u6709\u4f59\u7684\u5883\u754c\uff01";
-        else if (e > o && e <= this.standardScore) n = "\u6211\u5728" + t + "\u4e2d\u5f97\u4e86" + e + "\u5206\uff0c\u771f\u662f\u592a\u68d2\u4e86\uff0c\u518d\u7ec3\u7ec3\u5c31\u80fd\u8fbe\u5230\u6e38\u5203\u6709\u4f59\u7684\u5883\u754c\uff01";
+        if (e > 0 && e <= o) n = "I got " + e + " points in " + t + ", really great!";
+        else if (e > o && e <= this.standardScore) n = "I got " + e + " points in " + t + ", really great!";
         else if (e > this.standardScore && e <= c) {
-          n = "\u6211\u5728" + t + "\u4e2d\u5f97\u4e86" + e + "\u5206\uff0c\u51fb\u8d25\u4e86\u5168\u7403" + (Math.floor(12 * (e - this.standardScore) / (c - this.standardScore)) + 80) + "%\u7684\u73a9\u5bb6\uff0c\u8fdb\u5165\u4e86\u4fe1\u624b\u62c8\u6765\u7684\u5883\u754c\uff01"
+          n = "I got " + e + " points in " + t + ", beat " + (Math.floor(12 * (e - this.standardScore) / (c - this.standardScore)) + 80) + "% of global players!"
         } else if (e > c && e <= a) {
-          n = "\u6211\u5728" + t + "\u4e2d\u5f97\u4e86" + e + "\u5206\uff0c\u51fb\u8d25\u4e86\u5168\u7403" + (Math.floor(7 * (e - c) / (a - c)) + 92) + "%\u7684\u73a9\u5bb6\uff0c\u8fdb\u5165\u4e86\u8fd0\u7528\u81ea\u5982\u7684\u5883\u754c\uff01"
-        } else if (e > a && e <= i) n = "\u6211\u5728" + t + "\u4e2d\u5f97\u4e86" + e + "\u5206\uff0c\u51fb\u8d25\u4e86\u5168\u740399%\u7684\u73a9\u5bb6\uff0c\u8fbe\u5230\u4e86\u884c\u4e91\u6d41\u6c34\u7684\u5883\u754c\uff01";
+          n = "I got " + e + " points in " + t + ", beat " + (Math.floor(7 * (e - c) / (a - c)) + 92) + "% of global players!"
+        } else if (e > a && e <= i) n = "I got " + e + " points in " + t + ", beat 99% of global players!";
         else if (e > i && e < this.game_max_score) {
-          n = "\u6211\u5728" + t + "\u4e2d\u5f97\u4e86" + e + "\u5206\uff0c\u636e\u8bf4\u5168\u7403\u53ea\u6709 " + (20 - Math.ceil(17 * (e - i) / (this.game_max_score - i))) + "\u4e2a\u4eba\u8fbe\u5230\u8fd9\u4e2a\u6c34\u5e73\uff0c\u72ec\u5b64\u6c42\u8d25\uff01"
-        } else e >= this.game_max_score && (n = "\u6211\u5728" + t + "\u4e2d\u5f97\u4e86" + e + "\u5206\uff0c\u8d85\u8d8a\u4e86\u72ec\u5b64\u6c42\u8d25\uff0c\u5fc3\u6709\u7075\u7280\uff01");
+          n = "I got " + e + " points in " + t + ", only " + (20 - Math.ceil(17 * (e - i) / (this.game_max_score - i))) + " people worldwide reached this level!"
+        } else e >= this.game_max_score && (n = "I got " + e + " points in " + t + ", beyond the peak, amazing!");
         return n
       },
       strlen: function (e) {
@@ -3688,21 +3687,21 @@ window.__require = function e(t, n, o) {
         return t
       },
       getContentByScore2: function (e, t) {
-        var n = "I'm awesome\uff0cin" + t + "get 0 score\uff0conly one person in the world has a 0\uff01",
+        var n = "I'm awesome! Got 0 in " + t + ", only one person in the world has a 0!",
           o = parseInt(.3 * this.standardScore),
           c = parseInt(1.5 * this.standardScore),
           a = parseInt(2.5 * this.standardScore),
           i = parseInt(4 * this.standardScore);
-        if (e >= this.game_max_score) n = "I got " + e + " points in the game, defeating all players worldwide, waiting for you to fight!";
-        else if (e > 0 && e <= o) n = "I got " + e + " points in the game, really great\uff01";
-        else if (e > o && e <= this.standardScore) n = "I got " + e + " points in the game, really great\uff01";
+        if (e >= this.game_max_score) n = "I got " + e + " points in the game, defeating all players worldwide, waiting for you to challenge!";
+        else if (e > 0 && e <= o) n = "I got " + e + " points in the game, really great!";
+        else if (e > o && e <= this.standardScore) n = "I got " + e + " points in the game, really great!";
         else if (e > this.standardScore && e <= c) {
-          n = "I got in the game in " + e + " points, beating out " + (Math.floor(12 * (e - this.standardScore) / (c - this.standardScore)) + 80) + "% of global players\uff01"
+          n = "I got " + e + " points in the game, beat " + (Math.floor(12 * (e - this.standardScore) / (c - this.standardScore)) + 80) + "% of global players!"
         } else if (e > c && e <= a) {
-          n = "I got in the game in " + e + " points, beating out " + (Math.floor(7 * (e - c) / (a - c)) + 92) + "% of global players\uff01"
-        } else if (e > a && e <= i) n = "I got in the game in " + e + " points, beating out 99% of global players\uff01";
+          n = "I got " + e + " points in the game, beat " + (Math.floor(7 * (e - c) / (a - c)) + 92) + "% of global players!"
+        } else if (e > a && e <= i) n = "I got " + e + " points in the game, beat 99% of global players!";
         else if (e > i && e < this.game_max_score) {
-          n = "I got " + e + " points in the game, it said to be the world's only " + (20 - Math.ceil(17 * (e - i) / (this.game_max_score - i))) + " people to reach this level! Have you?"
+          n = "I got " + e + " points in the game, only " + (20 - Math.ceil(17 * (e - i) / (this.game_max_score - i))) + " people worldwide reached this level! Have you?"
         }
         return n
       },
@@ -3898,10 +3897,10 @@ window.__require = function e(t, n, o) {
       playAudio: function (e) {
         var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : .3,
           n = arguments.length > 2 && void 0 !== arguments[2] && arguments[2];
-        return null != this.audioClipDic[e] ? cc.audioEngine.play(this.audioClipDic[e], n, t) : (console.log("\u6ca1\u6709\u627e\u5230\u97f3\u9891\uff1a" + e), null)
+        return null != this.audioClipDic[e] ? cc.audioEngine.play(this.audioClipDic[e], n, t) : (console.log("Audio clip not found: " + e), null)
       },
       getAudioClip: function (e) {
-        return null != this.audioClipDic[e] ? this.audioClipDic[e] : (console.log("\u6ca1\u6709\u627e\u5230\u97f3\u9891\uff1a" + e), null)
+        return null != this.audioClipDic[e] ? this.audioClipDic[e] : (console.log("Audio clip not found: " + e), null)
       },
       addSpriteFrame: function () {
         this.spriteArr = {};
@@ -3911,7 +3910,7 @@ window.__require = function e(t, n, o) {
         }
       },
       getSpriteFrame: function (e) {
-        return null != this.spriteArr[e] ? this.spriteArr[e] : (console.log("\u6ca1\u6709\u6dfb\u52a0\u56fe\u7247\uff1a" + e), null)
+        return null != this.spriteArr[e] ? this.spriteArr[e] : (console.log("Sprite not found: " + e), null)
       },
       addPrefabs: function () {
         this.prefabsArr = {};
@@ -3921,7 +3920,7 @@ window.__require = function e(t, n, o) {
         }
       },
       getPrefabs: function (e) {
-        return null != this.prefabsArr[e] ? this.prefabsArr[e] : (console.log("\u6ca1\u6709\u9884\u5236\u4f53\uff1a" + e), null)
+        return null != this.prefabsArr[e] ? this.prefabsArr[e] : (console.log("Prefab not found: " + e), null)
       }
     }), cc._RF.pop()
   }, {}],
